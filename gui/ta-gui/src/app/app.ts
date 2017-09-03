@@ -12,9 +12,11 @@ export class App {
   protected readonly title = signal('Teaching Assistant');
   aluno: Aluno = {nome: "", cpf: "", email: "", github: ""};
   alunoService = new AlunoService();
+  alunos: Aluno[] = [];
 
   gravar(a: Aluno): void {
     this.alunoService.gravar(a);
     this.aluno = {nome: "", cpf: "", email: "", github: ""};
+    this.alunos.push(a);
   }
 }
