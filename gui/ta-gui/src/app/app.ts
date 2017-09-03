@@ -20,6 +20,7 @@ export class App {
       this.aluno = {nome: "", cpf: "", email: "", github: ""};
     } else {
       this.aluno.cpf = "";
+      alert("Já existe um aluno com esse CPF");
     }
   }
 }
