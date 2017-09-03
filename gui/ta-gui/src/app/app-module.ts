@@ -1,3 +1,4 @@
+import { AlunoService } from './aluno.service';
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   providers: [
+    AlunoService,
     provideBrowserGlobalErrorListeners(),
     //provideClientHydration(withEventReplay()),
   ],

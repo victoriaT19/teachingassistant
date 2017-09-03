@@ -9,9 +9,10 @@ import { AlunoService } from './aluno.service';
   styleUrl: './app.css'
 })
 export class App {
+  constructor(private alunoService: AlunoService) {}
+
   protected readonly title = signal('Teaching Assistant');
   aluno: Aluno = {nome: "", cpf: "", email: "", github: ""};
-  alunoService = new AlunoService();
   alunos: Aluno[] = [];
   cpfduplicado: boolean = false;
 
