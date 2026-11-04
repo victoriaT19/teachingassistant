@@ -10,7 +10,7 @@
    <td><label>CPF </label></td>
    <td><input [(ngModel)]="aluno.cpf" ></td>
    <td *ngIf="cpfduplicado">
-     Já existe um aluno com esse CPF
+     Já existe um aluno com esse CPF ou login GitHub
    </td>
 </tr>
 <tr>
@@ -28,11 +28,13 @@
    <th>Nome</th>
    <th>CPF</th>
    <th>e-mail</th>
+   <th>GitHub</th>
 </tr>
 <tr *ngFor="let a of alunos">
    <td>{{a.nome}}</td>
    <td>{{a.cpf}}</td>
    <td>{{a.email}}</td>
+   <td>{{a.github}}</td>
 </tr>
 </table>
 
