@@ -18,10 +18,3 @@ export class App {
     this.aluno = {nome: "", cpf: "", email: "", github: ""};
   }
 }
-
-export class Aluno {
-  nome: string;
-  cpf: string;
-  email: string;
-  github: string;
-}
