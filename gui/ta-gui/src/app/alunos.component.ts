@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 import { Aluno } from '../../../../common/aluno';
 import { AlunoService } from './aluno.service';
@@ -10,19 +10,26 @@ import { AlunoService } from './aluno.service';
   styleUrl: './alunos.component.css'
 })
 export class AlunosComponent implements OnInit {
-  constructor(private alunoService: AlunoService) {}
+  constructor(private alunoService: AlunoService, private cdr: ChangeDetectorRef) {}
 
   aluno: Aluno = new Aluno();
   alunos: Aluno[] = [];
   cpfduplicado: boolean = false;
 
   criarAluno(a: Aluno): void {
-    if (this.alunoService.criar(a)) {
-      this.alunos.push(a);
-      this.aluno = new Aluno();
-    } else {
-      this.cpfduplicado = true;
-    }
+    this.alunoService.criar(a)
+      .subscribe(
+        ar => {
+          if (ar) {
+            this.alunos.push(ar);
+            this.aluno = new Aluno();
+          } else {
+            this.cpfduplicado = true;
+          }
+          this.cdr.markForCheck();
+        },
+        msg => { alert(msg.message); }
+      );
   }
 
   onMove(): void {
@@ -30,6 +37,10 @@ export class AlunosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.alunos = this.alunoService.getAlunos();
+    this.alunoService.getAlunos()
+      .subscribe(
+        as => { this.alunos = as; this.cdr.markForCheck(); },
+        msg => { alert(msg.message); }
+      );
   }
 }

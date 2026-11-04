@@ -7,6 +7,7 @@ import { App } from './app';
 import { AlunosComponent } from './alunos.component';
 import { MetasComponent } from './metas.component';
 import { FormsModule } from '@angular/forms';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [
     AlunoService,
+    provideHttpClient(withFetch()),
     provideBrowserGlobalErrorListeners(),
   ],
   bootstrap: [App]
