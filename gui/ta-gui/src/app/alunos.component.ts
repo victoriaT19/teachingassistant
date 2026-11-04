@@ -32,6 +32,19 @@ export class AlunosComponent implements OnInit {
       );
   }
 
+  removerAluno(a: Aluno): void {
+    this.alunoService.remover(a)
+      .subscribe(
+        ar => {
+          if (ar) {
+            this.alunos = this.alunos.filter(x => x.cpf != a.cpf);
+          }
+          this.cdr.markForCheck();
+        },
+        msg => { alert(msg.message); }
+      );
+  }
+
   onMove(): void {
     this.cpfduplicado = false;
   }

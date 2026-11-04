@@ -21,6 +21,12 @@ export class CadastroDeAlunos {
     return !github || !this.alunos.find(a => a.github == github);
   }
 
+  remover(cpf: string): boolean {
+    var tamanho = this.alunos.length;
+    this.alunos = this.alunos.filter(a => a.cpf != cpf);
+    return this.alunos.length < tamanho;
+  }
+
   atualizar(aluno: Aluno): Aluno {
     var result: Aluno = this.alunos.find(a => a.cpf == aluno.cpf);
     if (result) result.copyFrom(aluno);
