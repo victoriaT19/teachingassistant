@@ -8,7 +8,7 @@ import { Component, signal } from '@angular/core';
 })
 export class App {
   protected readonly title = signal('Teaching Assistant');
-    aluno: Aluno = {nome: "", cpf: "", email: ""};
+    aluno: Aluno = {nome: "Maria", cpf: "123", email: "maria@x.com"};
 }
 
 export class Aluno {                                        
