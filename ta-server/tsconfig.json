@@ -8,8 +8,7 @@
     "experimentalDecorators": true,
     "lib": [ "es2015", "dom" ],
     "noImplicitAny": true,
-    "outDir": "compiledCode",
-    "suppressImplicitAnyIndexErrors": true
+    "outDir": "compiledCode"
   },
   "compileOnSave": true,
 }
